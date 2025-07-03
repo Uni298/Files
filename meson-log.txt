@@ -1,0 +1,551 @@
+Build started at 2025-07-03T11:59:41.988123
+Main binary: /usr/bin/python3
+Build Options: -Dbuildtype=release --cross-file=cross-windows.txt
+Python system: Linux
+The Meson build system
+Version: 1.3.2
+Source dir: /home/k2011/zrythm-0.6.479
+Build dir: /home/k2011/zrythm-0.6.479/build-windows
+Build type: cross build
+Project name: zrythm
+Project version: 0.6.479
+-----------
+Detecting compiler via: `x86_64-w64-mingw32-gcc --version` -> 0
+stdout:
+x86_64-w64-mingw32-gcc (GCC) 13-win32
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+-----------
+Running command: x86_64-w64-mingw32-gcc -E -dM -
+-----
+-----------
+Detecting linker via: `x86_64-w64-mingw32-gcc -Wl,--version` -> 0
+stdout:
+GNU ld (GNU Binutils) 2.41.90.20240122
+Copyright (C) 2024 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) a later version.
+This program has absolutely no warranty.
+-----------
+stderr:
+collect2 version 13-win32
+/usr/bin/x86_64-w64-mingw32-ld -plugin /usr/lib/gcc/x86_64-w64-mingw32/13-win32/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-w64-mingw32/13-win32/lto-wrapper -plugin-opt=-fresolution=/tmp/ccWm0OQb.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic /usr/lib/gcc/x86_64-w64-mingw32/13-win32/../../../../x86_64-w64-mingw32/lib/crt2.o /usr/lib/gcc/x86_64-w64-mingw32/13-win32/crtbegin.o -L/usr/lib/gcc/x86_64-w64-mingw32/13-win32 -L/usr/lib/gcc/x86_64-w64-mingw32/13-win32/../../../../x86_64-w64-mingw32/lib --version -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 /usr/lib/gcc/x86_64-w64-mingw32/13-win32/crtend.o
+-----------
+Sanity testing C compiler: x86_64-w64-mingw32-gcc
+Is cross compiler: True.
+Sanity check compiler command line: x86_64-w64-mingw32-gcc sanitycheckc.c -o sanitycheckc_cross.exe -D_FILE_OFFSET_BITS=64 -c
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+C compiler for the host machine: x86_64-w64-mingw32-gcc (gcc 13.0.0 "x86_64-w64-mingw32-gcc (GCC) 13-win32")
+C linker for the host machine: x86_64-w64-mingw32-gcc ld.bfd 2.41.90.20240122
+-----------
+Detecting archiver via: `x86_64-w64-mingw32-ar --version` -> 0
+stdout:
+GNU ar (GNU Binutils) 2.41.90.20240122
+Copyright (C) 2024 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) any later version.
+This program has absolutely no warranty.
+-----------
+-----------
+Detecting compiler via: `x86_64-w64-mingw32-g++ --version` -> 0
+stdout:
+x86_64-w64-mingw32-g++ (GCC) 13-win32
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+-----------
+Running command: x86_64-w64-mingw32-g++ -E -dM -
+-----
+-----------
+Detecting linker via: `x86_64-w64-mingw32-g++ -Wl,--version` -> 0
+stdout:
+GNU ld (GNU Binutils) 2.41.90.20240122
+Copyright (C) 2024 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) a later version.
+This program has absolutely no warranty.
+-----------
+stderr:
+collect2 version 13-win32
+/usr/bin/x86_64-w64-mingw32-ld -plugin /usr/lib/gcc/x86_64-w64-mingw32/13-win32/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-w64-mingw32/13-win32/lto-wrapper -plugin-opt=-fresolution=/tmp/ccxWE96E.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic /usr/lib/gcc/x86_64-w64-mingw32/13-win32/../../../../x86_64-w64-mingw32/lib/crt2.o /usr/lib/gcc/x86_64-w64-mingw32/13-win32/crtbegin.o -L/usr/lib/gcc/x86_64-w64-mingw32/13-win32 -L/usr/lib/gcc/x86_64-w64-mingw32/13-win32/../../../../x86_64-w64-mingw32/lib --version -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 /usr/lib/gcc/x86_64-w64-mingw32/13-win32/crtend.o
+-----------
+Sanity testing C++ compiler: x86_64-w64-mingw32-g++
+Is cross compiler: True.
+Sanity check compiler command line: x86_64-w64-mingw32-g++ sanitycheckcpp.cc -o sanitycheckcpp_cross.exe -D_FILE_OFFSET_BITS=64 -c
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+C++ compiler for the host machine: x86_64-w64-mingw32-g++ (gcc 13.0.0 "x86_64-w64-mingw32-g++ (GCC) 13-win32")
+C++ linker for the host machine: x86_64-w64-mingw32-g++ ld.bfd 2.41.90.20240122
+-----------
+Detecting compiler via: `cc --version` -> 0
+stdout:
+cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+-----------
+Running command: cc -E -dM -
+-----
+-----------
+Detecting linker via: `cc -Wl,--version` -> 0
+stdout:
+GNU ld (GNU Binutils for Ubuntu) 2.42
+Copyright (C) 2024 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) a later version.
+This program has absolutely no warranty.
+-----------
+stderr:
+collect2 version 13.3.0
+/usr/bin/ld -plugin /usr/libexec/gcc/x86_64-linux-gnu/13/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-linux-gnu/13/lto-wrapper -plugin-opt=-fresolution=/tmp/cc3aPPF4.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/13 -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/13/../../.. --version -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o
+-----------
+Sanity testing C compiler: cc
+Is cross compiler: False.
+Sanity check compiler command line: cc sanitycheckc.c -o sanitycheckc.exe -D_FILE_OFFSET_BITS=64
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/sanitycheckc.exe
+C compiler for the build machine: cc (gcc 13.3.0 "cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0")
+C linker for the build machine: cc ld.bfd 2.42
+-----------
+Detecting archiver via: `gcc-ar --version` -> 0
+stdout:
+GNU ar (GNU Binutils for Ubuntu) 2.42
+Copyright (C) 2024 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) any later version.
+This program has absolutely no warranty.
+-----------
+-----------
+Detecting compiler via: `c++ --version` -> 0
+stdout:
+c++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+-----------
+Running command: c++ -E -dM -
+-----
+-----------
+Detecting linker via: `c++ -Wl,--version` -> 0
+stdout:
+GNU ld (GNU Binutils for Ubuntu) 2.42
+Copyright (C) 2024 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) a later version.
+This program has absolutely no warranty.
+-----------
+stderr:
+collect2 version 13.3.0
+/usr/bin/ld -plugin /usr/libexec/gcc/x86_64-linux-gnu/13/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-linux-gnu/13/lto-wrapper -plugin-opt=-fresolution=/tmp/ccecijYf.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/13 -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/13/../../.. --version -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o
+-----------
+Sanity testing C++ compiler: c++
+Is cross compiler: False.
+Sanity check compiler command line: c++ sanitycheckcpp.cc -o sanitycheckcpp.exe -D_FILE_OFFSET_BITS=64
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/sanitycheckcpp.exe
+C++ compiler for the build machine: c++ (gcc 13.3.0 "c++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0")
+C++ linker for the build machine: c++ ld.bfd 2.42
+Build machine cpu family: x86_64
+Build machine cpu: x86_64
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Target machine cpu family: x86_64
+Target machine cpu: x86_64
+Program sed found: YES (/usr/bin/sed)
+Program sphinx-build sphinx-build-3 found: NO
+Program help2man found: NO
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpgcdyrmjr
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("unistd.h")
+          #error "Header 'unistd.h' could not be found"
+         #endif
+        #else
+         #include <unistd.h>
+        #endif
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpgcdyrmjr/testfile.c -E -P -D_FILE_OFFSET_BITS=64 -P -O0 -std=gnu11` -> 0
+Has header "unistd.h" : YES 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp7kbnfl19
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("sys/time.h")
+          #error "Header 'sys/time.h' could not be found"
+         #endif
+        #else
+         #include <sys/time.h>
+        #endif
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp7kbnfl19/testfile.c -E -P -D_FILE_OFFSET_BITS=64 -P -O0 -std=gnu11` -> 0
+Has header "sys/time.h" : YES 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmppjnai37q
+Code:
+ int main(void) { return 0; }
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmppjnai37q/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmppjnai37q/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lm -Wl,--end-group -Wl,--allow-shlib-undefined` -> 0
+Library m found: YES
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp7kbas2_9
+Code:
+ 
+        #define mlock meson_disable_define_of_mlock
+        
+        #include <limits.h>
+        #undef mlock
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char mlock (void);
+        
+        #if defined __stub_mlock || defined __stub___mlock
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return mlock ();
+        }
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp7kbas2_9/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp7kbas2_9/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 -Wl,--start-group -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -lm -Wl,--end-group` -> 1
+stderr:
+/usr/bin/x86_64-w64-mingw32-ld: /tmp/cccniCRb.o:testfile.c:(.text+0xe): undefined reference to `mlock'
+collect2: error: ld returned 1 exit status
+-----------
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp2pbxvmbo
+Code:
+ 
+        int main(void) {
+
+        /* With some toolchains (MSYS2/mingw for example) the compiler
+         * provides various builtins which are not really implemented and
+         * fall back to the stdlib where they aren't provided and fail at
+         * build/link time. In case the user provides a header, including
+         * the header didn't lead to the function being defined, and the
+         * function we are checking isn't a builtin itself we assume the
+         * builtin is not functional and we just error out. */
+        #if !1 && !defined(mlock) && !0
+            #error "No definition for __builtin_mlock found in the prefix"
+        #endif
+
+        #ifdef __has_builtin
+            #if !__has_builtin(__builtin_mlock)
+                #error "__builtin_mlock not found"
+            #endif
+        #elif ! defined(mlock)
+            __builtin_mlock;
+        #endif
+        return 0;
+        }
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp2pbxvmbo/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp2pbxvmbo/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 -Wl,--start-group -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -lm -Wl,--end-group` -> 1
+stderr:
+/home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp2pbxvmbo/testfile.c: In function 'main':
+/home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp2pbxvmbo/testfile.c:17:18: error: #error "__builtin_mlock not found"
+   17 |                 #error "__builtin_mlock not found"
+      |                  ^~~~~
+-----------
+Checking for function "mlock" with dependency -lm: NO 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp97t_k236
+Code:
+ 
+        #define jack_set_property meson_disable_define_of_jack_set_property
+        
+        #include <limits.h>
+        #undef jack_set_property
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char jack_set_property (void);
+        
+        #if defined __stub_jack_set_property || defined __stub___jack_set_property
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return jack_set_property ();
+        }
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp97t_k236/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp97t_k236/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 -Wl,--start-group -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -lm -Wl,--end-group` -> 1
+stderr:
+/usr/bin/x86_64-w64-mingw32-ld: /tmp/cc7WBuom.o:testfile.c:(.text+0xe): undefined reference to `jack_set_property'
+collect2: error: ld returned 1 exit status
+-----------
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmplho75csq
+Code:
+ 
+        int main(void) {
+
+        /* With some toolchains (MSYS2/mingw for example) the compiler
+         * provides various builtins which are not really implemented and
+         * fall back to the stdlib where they aren't provided and fail at
+         * build/link time. In case the user provides a header, including
+         * the header didn't lead to the function being defined, and the
+         * function we are checking isn't a builtin itself we assume the
+         * builtin is not functional and we just error out. */
+        #if !1 && !defined(jack_set_property) && !0
+            #error "No definition for __builtin_jack_set_property found in the prefix"
+        #endif
+
+        #ifdef __has_builtin
+            #if !__has_builtin(__builtin_jack_set_property)
+                #error "__builtin_jack_set_property not found"
+            #endif
+        #elif ! defined(jack_set_property)
+            __builtin_jack_set_property;
+        #endif
+        return 0;
+        }
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmplho75csq/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmplho75csq/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 -Wl,--start-group -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -lm -Wl,--end-group` -> 1
+stderr:
+/home/k2011/zrythm-0.6.479/build-windows/meson-private/tmplho75csq/testfile.c: In function 'main':
+/home/k2011/zrythm-0.6.479/build-windows/meson-private/tmplho75csq/testfile.c:17:18: error: #error "__builtin_jack_set_property not found"
+   17 |                 #error "__builtin_jack_set_property not found"
+      |                  ^~~~~
+-----------
+Checking for function "jack_set_property" with dependency -lm: NO 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpslqr1jm9
+Code:
+ extern int i;
+int i;
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpslqr1jm9/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpslqr1jm9/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wall` -> 0
+Compiler for C supports arguments -Wall: YES 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpnvafts7a
+Code:
+ extern int i;
+int i;
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpnvafts7a/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpnvafts7a/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wformat=2` -> 0
+Compiler for C supports arguments -Wformat=2: YES 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmposyy0488
+Code:
+ extern int i;
+int i;
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmposyy0488/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmposyy0488/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wmissing-field-initializers -Wno-missing-field-initializers` -> 0
+Compiler for C supports arguments -Wno-missing-field-initializers: YES 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpdurg35ho
+Code:
+ extern int i;
+int i;
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpdurg35ho/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpdurg35ho/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wunused-parameter -Wno-unused-parameter` -> 0
+Compiler for C supports arguments -Wno-unused-parameter: YES 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp3a_xz8og
+Code:
+ extern int i;
+int i;
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp3a_xz8og/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp3a_xz8og/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wsequence-point -Wno-sequence-point` -> 0
+Compiler for C supports arguments -Wno-sequence-point: YES 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpgx9g9a03
+Code:
+ extern int i;
+int i;
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpgx9g9a03/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpgx9g9a03/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wignored-qualifiers` -> 0
+Compiler for C supports arguments -Wignored-qualifiers: YES 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpc7zyspb4
+Code:
+ extern int i;
+int i;
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpc7zyspb4/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpc7zyspb4/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wcast-function-type -Wno-cast-function-type` -> 0
+Compiler for C supports arguments -Wno-cast-function-type: YES 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmppcmtx1dq
+Code:
+ extern int i;
+int i;
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmppcmtx1dq/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmppcmtx1dq/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -ffast-math` -> 0
+Compiler for C supports arguments -ffast-math: YES 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpcpjquqpy
+Code:
+ extern int i;
+int i;
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpcpjquqpy/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpcpjquqpy/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -DPIC` -> 0
+Compiler for C supports arguments -DPIC: YES 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp6aro0_1v
+Code:
+ extern int i;
+int i;
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp6aro0_1v/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp6aro0_1v/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -fdata-sections` -> 0
+Compiler for C supports arguments -fdata-sections: YES 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp7ewqv3xv
+Code:
+ extern int i;
+int i;
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp7ewqv3xv/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp7ewqv3xv/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -ffunction-sections` -> 0
+Compiler for C supports arguments -ffunction-sections: YES 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp2nuzevnv
+Code:
+ extern int i;
+int i;
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp2nuzevnv/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp2nuzevnv/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -mtune=generic` -> 0
+Compiler for C supports arguments -mtune=generic: YES 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpxgp2ozp2
+Code:
+ extern int i;
+int i;
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpxgp2ozp2/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpxgp2ozp2/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -msse` -> 0
+Compiler for C supports arguments -msse: YES 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp0lp5cvta
+Code:
+ extern int i;
+int i;
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp0lp5cvta/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp0lp5cvta/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -msse2` -> 0
+Compiler for C supports arguments -msse2: YES 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpuhintcfk
+Code:
+ extern int i;
+int i;
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpuhintcfk/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmpuhintcfk/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -mfpmath=sse` -> 0
+Compiler for C supports arguments -mfpmath=sse: YES 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmptbo6xgy_
+Code:
+ int main(void) { return 0; }
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmptbo6xgy_/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmptbo6xgy_/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--fatal-warnings -Wl,--start-group -lm -Wl,--end-group` -> 0
+Compiler for C supports link arguments -lm: YES 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp9gza6jln
+Code:
+ int main(void) { return 0; }
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp9gza6jln/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp9gza6jln/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--fatal-warnings -Wl,--start-group -lfftw3_threads -Wl,--end-group` -> 1
+stderr:
+/usr/bin/x86_64-w64-mingw32-ld: cannot find -lfftw3_threads: No such file or directory
+collect2: error: ld returned 1 exit status
+-----------
+Compiler for C supports link arguments -lfftw3_threads: NO 
+Running compile:
+Working directory:  /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp4hcgobd_
+Code:
+ int main(void) { return 0; }
+
+-----------
+Command line: `x86_64-w64-mingw32-gcc /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp4hcgobd_/testfile.c -o /home/k2011/zrythm-0.6.479/build-windows/meson-private/tmp4hcgobd_/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--fatal-warnings -Wl,--start-group -lfftw3f_threads -Wl,--end-group` -> 1
+stderr:
+/usr/bin/x86_64-w64-mingw32-ld: cannot find -lfftw3f_threads: No such file or directory
+collect2: error: ld returned 1 exit status
+-----------
+Compiler for C supports link arguments -lfftw3f_threads: NO 
+Pkg-config binary for host machine specified from cross file, native file, or env var as ['x86_64-w64-mingw32-pkg-config']
+Did not find pkg-config by name 'x86_64-w64-mingw32-pkg-config'
+Found pkg-config: NO
+Pkg-config for machine host machine not found. Giving up.
+CMake binary for host machine is not cached
+CMake binary missing from cross or native file, or env var undefined.
+Default target is not allowed for cross use
+Found CMake: NO
+CMake binary for machine host machine not found. Giving up.
+Run-time dependency libgtop-2.0 found: NO (tried pkgconfig and cmake)
+Pkg-config for machine host machine not found. Giving up.
+CMake binary for host machine is cached as not found
+CMake binary for machine host machine not found. Giving up.
+Run-time dependency x11 found: NO (tried pkgconfig and cmake)
+Pkg-config for machine host machine not found. Giving up.
+CMake binary for host machine is cached as not found
+CMake binary for machine host machine not found. Giving up.
+Run-time dependency jack found: NO (tried pkgconfig and cmake)
+Pkg-config for machine host machine not found. Giving up.
+CMake binary for host machine is cached as not found
+CMake binary for machine host machine not found. Giving up.
+Run-time dependency portaudio-2.0 found: NO (tried pkgconfig and cmake)
+Pkg-config for machine host machine not found. Giving up.
+CMake binary for host machine is cached as not found
+CMake binary for machine host machine not found. Giving up.
+Run-time dependency suil-0 found: NO (tried pkgconfig and cmake)
+Pkg-config for machine host machine not found. Giving up.
+CMake binary for host machine is cached as not found
+CMake binary for machine host machine not found. Giving up.
+Run-time dependency alsa found: NO (tried pkgconfig and cmake)
+Pkg-config for machine host machine not found. Giving up.
+CMake binary for host machine is cached as not found
+CMake binary for machine host machine not found. Giving up.
+Run-time dependency libcyaml found: NO (tried pkgconfig and cmake)
+Pkg-config for machine host machine not found. Giving up.
+CMake binary for host machine is cached as not found
+CMake binary for machine host machine not found. Giving up.
+Run-time dependency carla-native-plugin found: NO (tried pkgconfig and cmake)
+Pkg-config for machine host machine not found. Giving up.
+CMake binary for host machine is cached as not found
+CMake binary for machine host machine not found. Giving up.
+Run-time dependency qt5widgets found: NO (tried pkgconfig and cmake)
+Dependency lookup for yaml-0.1 with method 'pkgconfig' failed: Pkg-config for machine host machine not found. Giving up.
+CMake binary for host machine is cached as not found
+Dependency lookup for yaml-0.1 with method 'cmake' failed: CMake binary for machine host machine not found. Giving up.
+Run-time dependency yaml-0.1 found: NO 
+
+meson.build:353:11: ERROR: Dependency lookup for yaml-0.1 with method 'pkgconfig' failed: Pkg-config for machine host machine not found. Giving up.
