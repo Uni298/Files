@@ -1,10 +1,10 @@
 import os
 import sys
-import requests
 import tarfile
 import shutil
-from urllib.request import urlretrieve
+import requests
 import zipfile
+from urllib.request import urlretrieve
 
 def fetch_tarball_url(package_name):
     try:
@@ -16,14 +16,14 @@ def fetch_tarball_url(package_name):
         tarball_url = data["versions"][latest_version]["dist"]["tarball"]
         return tarball_url
     except Exception as e:
-        print(f"❌ パッケージ情報取得失敗: {package_name} ({e})")
+        print(f"❌ {package_name} の取得に失敗: {e}")
         return None
 
 def download_tarball(url, dest_path):
     try:
         print(f"⬇️ ダウンロード中: {url}")
         urlretrieve(url, dest_path)
-        print(f"✅ ダウンロード成功: {dest_path}")
+        print(f"✅ ダウンロード完了: {dest_path}")
         return True
     except Exception as e:
         print(f"❌ ダウンロード失敗: {e}")
@@ -43,35 +43,34 @@ def extract_tarball(tar_path, extract_to):
                 if os.path.exists(extract_to):
                     shutil.rmtree(extract_to)
                 shutil.move(pkg_path, extract_to)
-                print(f"📁 配置成功: {extract_to}")
+                print(f"📁 展開先: {extract_to}")
             else:
-                print(f"⚠️ 解凍内容に 'package/' が見つかりませんでした")
+                print("⚠️ package フォルダが見つかりません")
         shutil.rmtree(temp_dir)
         os.remove(tar_path)
     except Exception as e:
-        print(f"❌ 解凍・配置失敗: {e}")
+        print(f"❌ 解凍エラー: {e}")
 
 def zip_package_folder(package_name, node_modules_dir, output_dir):
     folder_path = os.path.join(node_modules_dir, package_name)
-    zip_name = f"{package_name}.zip"
-    output_path = os.path.join(output_dir, zip_name)
+    zip_path = os.path.join(output_dir, f"{package_name}.zip")
 
-    print(f"\n🗜 ZIPアーカイブ作成中: {output_path}")
+    print(f"🗜 圧縮中: {zip_path}")
 
     if not os.path.exists(folder_path):
-        print(f"❌ フォルダが存在しません: {folder_path}")
+        print(f"❌ 圧縮対象が存在しません: {folder_path}")
         return
 
     os.makedirs(output_dir, exist_ok=True)
 
     try:
-        with zipfile.ZipFile(output_path, "w", zipfile.ZIP_DEFLATED) as zipf:
+        with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zipf:
             for root, dirs, files in os.walk(folder_path):
                 for file in files:
                     full_path = os.path.join(root, file)
                     rel_path = os.path.relpath(full_path, folder_path)
                     zipf.write(full_path, rel_path)
-        print(f"✅ ZIP作成成功: {output_path}")
+        print(f"✅ ZIP作成完了: {zip_path}")
     except Exception as e:
         print(f"❌ ZIP作成失敗: {e}")
 
@@ -82,7 +81,6 @@ def install_package(package_name, node_modules_dir):
 
     filename = f"{package_name.replace('/', '_')}.tgz"
     dest_dir = os.path.join(node_modules_dir, package_name.split('/')[-1])
-
     os.makedirs(node_modules_dir, exist_ok=True)
 
     if download_tarball(tarball_url, filename):
@@ -90,50 +88,28 @@ def install_package(package_name, node_modules_dir):
         return True
     return False
 
+def parse_args():
+    import argparse
+    parser = argparse.ArgumentParser(description="NPMライブラリ自動ダウンローダー")
+    parser.add_argument("-p", "--packages", nargs="+", required=True, help="インストールするnpmパッケージ群")
+    parser.add_argument("-o", "--output", default=".", help="出力先ディレクトリ")
+    parser.add_argument("-z", "--zip", action="store_true", help="ZIPファイルとしても出力")
+    return parser.parse_args()
+
 def main():
-    print("📦 空白区切りで npm パッケージ名を入力（例: express discord.js -zip -out bot）")
-    user_input = input(">> ").strip().split()
+    args = parse_args()
 
-    # オプション解析
-    should_zip = "-zip" in user_input
-    out_dir = "./"  # デフォルト
-    if "-out" in user_input:
-        try:
-            out_index = user_input.index("-out")
-            out_dir = user_input[out_index + 1]
-        except IndexError:
-            print("❌ -out の後に出力先ディレクトリが必要です")
-            return
-
-    # node_modules の出力先
+    out_dir = args.output
     node_modules_dir = os.path.join(out_dir, "node_modules")
+    os.makedirs(node_modules_dir, exist_ok=True)
 
-    # パッケージ名だけ抽出
-    packages = []
-    skip_next = False
-    for i, token in enumerate(user_input):
-        if skip_next:
-            skip_next = False
-            continue
-        if token == "-zip":
-            continue
-        elif token == "-out":
-            skip_next = True
-            continue
-        else:
-            packages.append(token)
-
-    if not packages:
-        print("❗ インストールするパッケージが指定されていません")
-        return
-
-    for i, pkg in enumerate(packages, 1):
-        print(f"\n==== [{i}/{len(packages)}] {pkg} ====")
+    for i, pkg in enumerate(args.packages, 1):
+        print(f"\n==== [{i}/{len(args.packages)}] {pkg} ====")
         success = install_package(pkg, node_modules_dir)
-        if should_zip and success:
+        if success and args.zip:
             zip_package_folder(pkg.split('/')[-1], node_modules_dir, out_dir)
 
-    print(f"\n🎉 全処理が完了しました → {os.path.abspath(out_dir)}")
+    print(f"\n🎉 完了: 出力先 → {os.path.abspath(out_dir)}")
 
 if __name__ == "__main__":
     main()
